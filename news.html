@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Простой мессенджер</title>
+    <style>
+        #messageContainer {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="messageContainer"></div>
+
+    <form id="messageForm">
+        <label for="userInput">Введите сообщение:</label>
+        <input type="text" id="userInput" placeholder="Введите здесь">
+        <button type="button" onclick="sendMessage()">Отправить</button>
+    </form>
+
+    <script>
+        function sendMessage() {
+            var userInput = document.getElementById('userInput').value;
+            var messageContainer = document.getElementById('messageContainer');
+            var newMessage = document.createElement('p');
+            newMessage.textContent = 'Вы: ' + userInput;
+            messageContainer.appendChild(newMessage);
+            document.getElementById('userInput').value = '';
+        }
+    </script>
+
+</body>
+</html>
